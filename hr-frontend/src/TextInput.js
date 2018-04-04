@@ -13,6 +13,8 @@ class TextInput extends React.Component {
 		}
 	}
 
+
+
 	onNameTextFieldChange = (event) => {
 		// Update the nameTextField state whenever the text field is changed or perturbed in any way:
 		this.setState({"nameTextField": event.target.value});
@@ -29,13 +31,15 @@ class TextInput extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div class="text-input-class-holders">
 				<TextField
 					value={this.state.nameTextField}
 					onChange={this.onNameTextFieldChange}/>
+        <section>
 				<Button onClick={this.getData}>
-					Log text field data.
+					Get HR Data
 				</Button>
+        </section>
 				{this.state.data /*show the current nameTextField state here in the browser */}
 			</div>
 		);
