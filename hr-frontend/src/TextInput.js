@@ -10,15 +10,21 @@ class TextInput extends React.Component {
 		super();
 		this.state = {
 			"nameTextField": "", // This is where the content for the TextField used below is stored
-			"dataSource": [
-        "suyash@suyashkumar.com",
-        "cole@cole.com"
-      ],
+			"dataSource": [],
 			"data": ""
 		}
 	}
 
+	getAutoCompleteEmails(){
+		// Get the emails of all users to use in AutoComplete
+		axios.get("http://vcm-3581.vm.duke.edu:5003/api/get_users").then( (response) => {
+			console.log(response.data.success);
+			if(response.data.success ==1){
+					this.setState({"dataSource": response.data.emails});
+			}
 
+		})
+	}
 
 	handleInput = (value) => {
 		// Update the nameTextField state whenever the text field is changed or perturbed in any way:
@@ -28,10 +34,12 @@ class TextInput extends React.Component {
 	getData = (event) => {
 		var email = this.state.nameTextField; // log the current nameTextField content
     axios.get("http://vcm-3581.vm.duke.edu:5003/api/heart_rate/" + email).then( (response) => {
-			console.log(response);
-			console.log(response.status);
 			this.setState({"data": JSON.stringify(response.data)});
 		})
+	}
+
+	componentDidMount() {
+		this.getAutoCompleteEmails()
 	}
 
 	render() {
