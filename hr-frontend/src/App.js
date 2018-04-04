@@ -10,8 +10,8 @@ class App extends Component {
       <MuiThemeProvider>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src="https://media2.giphy.com/media/8jidnMiqa1r32/giphy.gif" className="App-logo" alt="logo" />
+          <h1 className="App-title">BME 590S HR Dashboard</h1>
         </header>
         <TextInput />
       </div>
