@@ -5,7 +5,9 @@ Users can select the email address of the patient they would like to see the hea
 All heart rate readings for that user are then fetched from the cloud and displayed in a table. 
 
 ## Running the app
-To run this React app, simply run the following command from the root level of this repository:  `npm run start`
+To run this React app, simply run the following command from the root level of this repository:  
+1) `npm install`  
+2) `npm run start`
 
 ## Screenshots
 The auto complete email selector:   
